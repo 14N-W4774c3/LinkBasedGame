@@ -1,0 +1,100 @@
+{
+    "Title": "An Old House",
+    "Credits": "Created by Adam Smith (amsmith@ucsc.edu, engine) and Ian Wallace (iawallac@ucsc.edu, story).",
+    "InitialLocation": "Introduction",
+    "Locations": {
+        "Introduction": {
+            "Body": "This is an old house.",
+            "Choices": [
+                {
+                    "Text": "Fall",
+                    "Target": "North Side"
+                }
+            ]
+        },
+        "North Side": {
+            "Body": "The door opens to a landing between two levels.",
+            "Choices": [
+                {
+                    "Text": "Go up the stairs",
+                    "Target": "East Side"
+                },
+                {
+                    "Text": "Go down the stairs",
+                    "Target": "West Side"
+                },
+                {
+                    "Text": "Go back",
+                    "Target": "South Side"
+                }
+            ]
+        },
+        "East Side": {
+            "Body": "The upper floor has pink walls and more sun.  There's a large room to the left and a hallway to the right.",
+            "Choices": [
+                {
+                    "Text": "Go left",
+                    "Target": "North Side"
+                },
+                {
+                    "Text": "Go right",
+                    "Target": "West Side"
+                },
+                {
+                    "Text": "Go down the stairs",
+                    "Target": "South Side"
+                }
+            ]
+        },
+        "West Side": {
+            "Body": "The large room has a big window on the left wall.  Ahead is a room with a tile floor, and to the right is a side room with a large table.",
+            "Choices": [
+                {
+                    "Text": "Go to the tile room",
+                    "Target": "North Side"
+                },
+                {
+                    "Text": "Go to the room on the right",
+                    "Target": "East Side"
+                },
+                {
+                    "Text": "Go back",
+                    "Target": "South Side"
+                }
+            ]
+        },
+        "South Side": {
+            "Body": "This looks to be a kitchen - there's a fridge on your right, along with a microwave, several cupboards, a sink, and an oven in the opposite corner of the room.",
+            "Choices": [
+                {
+                    "Text": "Go to the tile room",
+                    "Target": "North Side"
+                },
+                {
+                    "Text": "Go to the room on the right",
+                    "Target": "East Side"
+                },
+                {
+                    "Text": "Go back",
+                    "Target": "West Side"
+                },
+                {
+                    "Text": "Fall",
+                    "Target": "Keypad"
+                }
+            ]
+        },
+        "Keypad": {
+            "Body": "This room is dominated by a large table.  Along the top of the walls are a series of decorated plates.",
+            "Choices": [
+                {
+                    "Text": "Go back",
+                    "Target": "South Side"
+                }
+            ]
+        },
+        "Escape": {
+            "Body": "Well, that's the house."
+        }
+    }
+}
