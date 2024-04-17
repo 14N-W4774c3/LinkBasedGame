@@ -15,7 +15,7 @@ class Location extends Scene {
         this.engine.show(locationData.Body);
         // Implementing Search mechanic
         if (locationData.Search) {
-            this.engine.addChoice();
+            this.engine.addChoice("Search the room", "Search");
         }
 
         if(locationData.Choices) {
@@ -29,6 +29,14 @@ class Location extends Scene {
 
     handleChoice(choice) {
         if(choice) {
+            if (choice == "Keypad"){
+                this.engine.show("&gt; "+choice.Text);
+                this.engine.gotoScene(Keypad, choice.Target);
+            }
+            if (choice == "Search"){
+                this.engine.show("&gt; "+choice.Text);
+                this.engine.show(locationData.Search);
+            }
             this.engine.show("&gt; "+choice.Text);
             this.engine.gotoScene(Location, choice.Target);
         } else {

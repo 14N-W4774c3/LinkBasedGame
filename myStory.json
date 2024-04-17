@@ -4,7 +4,7 @@
     "InitialLocation": "Introduction",
     "Locations": {
         "Introduction": {
-            "Body": "This is an old house.",
+            "Body": "",
             "Choices": [
                 {
                     "Text": "Fall",
@@ -13,7 +13,13 @@
             ]
         },
         "North Side": {
-            "Body": "The door opens to a landing between two levels.",
+            "Body": "This side of the room has a bunch of file cabinets.  You see the vent you fell out of - it's lucky you didn't hit your head on any corners.",
+            "Search": [
+                {
+                    "Text": "Between some file cabinets, you find a scrap of paper with the word 'Fahre-' written on it.",
+                    "Result": "northClue"
+                }
+            ],
             "Choices": [
                 {
                     "Text": "Check the east side of the room",
@@ -30,7 +36,13 @@
             ]
         },
         "East Side": {
-            "Body": "The upper floor has pink walls and more sun.  There's a large room to the left and a hallway to the right.",
+            "Body": "This side of the room has several shelves filled with boxes.",
+            "Search": [
+                {
+                    "Text": "Looking around, you manage to find a key behind some boxes.",
+                    "Result": "roomKey"
+                }
+            ],
             "Choices": [
                 {
                     "Text": "Check the north side of the room",
@@ -47,7 +59,13 @@
             ]
         },
         "West Side": {
-            "Body": "The large room has a big window on the left wall.  Ahead is a room with a tile floor, and to the right is a side room with a large table.",
+            "Body": "",
+            "Search": [
+                {
+                    "Text": "You find a scrap of paper with the word '-neheit' written on it.",
+                    "Result": "westClue"
+                }
+            ],
             "Choices": [
                 {
                     "Text": "Check the north side of the room",
@@ -64,7 +82,13 @@
             ]
         },
         "South Side": {
-            "Body": "This looks to be a kitchen - there's a fridge on your right, along with a microwave, several cupboards, a sink, and an oven in the opposite corner of the room.",
+            "Body": "",
+            "Search": [
+                {
+                    "Text": "You look around for a while, but don't find anything else.",
+                    "Result": "none"
+                }
+            ],
             "Choices": [
                 {
                     "Text": "Check the north side of the room",
@@ -84,17 +108,8 @@
                 }
             ]
         },
-        "Keypad": {
-            "Body": "This room is dominated by a large table.  Along the top of the walls are a series of decorated plates.",
-            "Choices": [
-                {
-                    "Text": "Go back",
-                    "Target": "South Side"
-                }
-            ]
-        },
         "Escape": {
-            "Body": "Well, that's the house."
+            "Body": "You exit the room to find yourself in a long hallway.  <br>Just what have you gotten yourself into this time?"
         }
     }
 }
