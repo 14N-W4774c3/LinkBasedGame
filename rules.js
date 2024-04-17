@@ -1,25 +1,26 @@
 class Start extends Scene {
     create() {
-        this.engine.setTitle(this.engine.storyData.Title); // TODO: replace this text using this.engine.storyData to find the story title
+        this.engine.setTitle(this.engine.storyData.Title);
         this.engine.addChoice("Begin the story");
     }
 
     handleChoice() {
-        this.engine.gotoScene(Location, this.engine.storyData["InitialLocation"]); // TODO: replace this text by the initial location of the story
+        this.engine.gotoScene(Location, this.engine.storyData["InitialLocation"]);
     }
 }
 
 class Location extends Scene {
     create(key) {
-        console.log(key);
-        let locationData = this.engine.storyData.Locations[key]; // TODO: use `key` to get the data object for the current story location
-        console.log(locationData);
-        this.engine.show(locationData.Body); // TODO: replace this text by the Body of the location data
-        
-        if(locationData.Choices) { // TODO: check if the location has any Choices
-            for(let choice of locationData.Choices) { // TODO: loop over the location's Choices
-                this.engine.addChoice(choice.Text, choice); // TODO: use the Text of the choice
-                // TODO: add a useful second argument to addChoice so that the current code of handleChoice below works
+        let locationData = this.engine.storyData.Locations[key];
+        this.engine.show(locationData.Body);
+        // Implementing Search mechanic
+        if (locationData.Search) {
+            this.engine.addChoice();
+        }
+
+        if(locationData.Choices) {
+            for(let choice of locationData.Choices) {
+                this.engine.addChoice(choice.Text, choice);
             }
         } else {
             this.engine.addChoice("The end.")
@@ -32,6 +33,45 @@ class Location extends Scene {
             this.engine.gotoScene(Location, choice.Target);
         } else {
             this.engine.gotoScene(End);
+        }
+    }
+}
+
+// Implementing Keypad puzzle
+class Keypad extends Scene {
+    create(length, code, boolvar, source) {
+        let solution = code;
+        let output = boolvar;
+        this.engine.show("This is a keypad with a "+length+"-digit combination.")
+        for (let i = 0; i < 10; i++){
+            this.engine.addChoice(i, i);
+        }
+        this.engine.addChoice("Enter");
+        this.engine.addChoice("Go back", source);
+    }
+
+    handleChoice(choice) {
+        if(choice) {
+            if (typeof(choice) == Number){ 
+                // Handle keypad inputs
+                if (keypadInput.length < this.length){
+                    keypadInput = keypadInput + choice;
+                }
+            }
+            else { 
+                // Handle going back
+                this.engine.show("&gt; "+choice.Text);
+                this.engine.gotoScene(Location, choice.Target);
+            }
+        }
+        else{ 
+            //Handle submitting code
+            if (keypadInput == this.code){
+                output = True;
+            }
+            else {
+                keypadInput = null;
+            }
         }
     }
 }

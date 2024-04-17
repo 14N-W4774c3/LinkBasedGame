@@ -1,5 +1,5 @@
 {
-    "Title": "An Old House",
+    "Title": "A Locked Room",
     "Credits": "Created by Adam Smith (amsmith@ucsc.edu, engine) and Ian Wallace (iawallac@ucsc.edu, story).",
     "InitialLocation": "Introduction",
     "Locations": {
@@ -16,15 +16,15 @@
             "Body": "The door opens to a landing between two levels.",
             "Choices": [
                 {
-                    "Text": "Go up the stairs",
+                    "Text": "Check the east side of the room",
                     "Target": "East Side"
                 },
                 {
-                    "Text": "Go down the stairs",
+                    "Text": "Check the west side of the room",
                     "Target": "West Side"
                 },
                 {
-                    "Text": "Go back",
+                    "Text": "Check the south side of the room",
                     "Target": "South Side"
                 }
             ]
@@ -33,15 +33,15 @@
             "Body": "The upper floor has pink walls and more sun.  There's a large room to the left and a hallway to the right.",
             "Choices": [
                 {
-                    "Text": "Go left",
+                    "Text": "Check the north side of the room",
                     "Target": "North Side"
                 },
                 {
-                    "Text": "Go right",
+                    "Text": "Check the west side of the room",
                     "Target": "West Side"
                 },
                 {
-                    "Text": "Go down the stairs",
+                    "Text": "Check the south side of the room",
                     "Target": "South Side"
                 }
             ]
@@ -50,15 +50,15 @@
             "Body": "The large room has a big window on the left wall.  Ahead is a room with a tile floor, and to the right is a side room with a large table.",
             "Choices": [
                 {
-                    "Text": "Go to the tile room",
+                    "Text": "Check the north side of the room",
                     "Target": "North Side"
                 },
                 {
-                    "Text": "Go to the room on the right",
+                    "Text": "Check the east side of the room",
                     "Target": "East Side"
                 },
                 {
-                    "Text": "Go back",
+                    "Text": "Check the south side of the room",
                     "Target": "South Side"
                 }
             ]
@@ -67,19 +67,19 @@
             "Body": "This looks to be a kitchen - there's a fridge on your right, along with a microwave, several cupboards, a sink, and an oven in the opposite corner of the room.",
             "Choices": [
                 {
-                    "Text": "Go to the tile room",
+                    "Text": "Check the north side of the room",
                     "Target": "North Side"
                 },
                 {
-                    "Text": "Go to the room on the right",
+                    "Text": "Check the east side of the room",
                     "Target": "East Side"
                 },
                 {
-                    "Text": "Go back",
+                    "Text": "Check the west side of the room",
                     "Target": "West Side"
                 },
                 {
-                    "Text": "Fall",
+                    "Text": "Try the keypad",
                     "Target": "Keypad"
                 }
             ]
