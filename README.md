@@ -28,4 +28,7 @@
 #       2. The correct input
 #       3. The location the keypad was accessed from (to go back to)
 #       4. All the other variables
-#   Additionally, it needs its own handleChoice, because it's not changing locations normally
+#   Additionally, it needs its own handleChoice, because it's not changing locations normally.
+#
+# While I'll continue to tinker with this, I must admit defeat in terms of this assignment.
+# I came to necessary realizations too late, and did not reach out for assistance.
