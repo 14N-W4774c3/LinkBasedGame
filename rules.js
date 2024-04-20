@@ -1,44 +1,61 @@
 class Start extends Scene {
+    
     create() {
         this.engine.setTitle(this.engine.storyData.Title);
         this.engine.addChoice("Begin the story");
     }
 
     handleChoice() {
-        this.engine.gotoScene(Location, this.engine.storyData["InitialLocation"]);
+        // Initialize variables
+        let room1Keypad = false;
+        let room1key = false;
+        let northClue = false;
+        let eastClue = false;
+        let southClue = false;
+        let westClue = false;
+        let data = [room1Keypad, room1key, northClue, eastClue, southClue, westClue]
+        this.engine.gotoScene(Location, [this.engine.storyData["InitialLocation"], data]);
     }
 }
 
 class Location extends Scene {
-    create(key) {
+    create(inputData) {
+        let key = inputData[0]
+        let data = inputData[1]
         let locationData = this.engine.storyData.Locations[key];
         this.engine.show(locationData.Body);
         // Implementing Search mechanic
         if (locationData.Search) {
-            this.engine.addChoice("Search the room", "Search");
+            if (data[locationData.Search.SID] == true){
+                this.engine.show(locationData.Search.Text)
+            } else {
+                this.engine.addChoice("Search the room", "Search");
+            }
         }
 
         if(locationData.Choices) {
             for(let choice of locationData.Choices) {
-                this.engine.addChoice(choice.Text, choice);
+                this.engine.addChoice(choice.Text, [choice, data]);
             }
         } else {
             this.engine.addChoice("The end.")
         }
     }
 
-    handleChoice(choice) {
+    handleChoice(choice, data) {
         if(choice) {
             if (choice == "Keypad"){
                 this.engine.show("&gt; "+choice.Text);
-                this.engine.gotoScene(Keypad, choice.Target);
+                this.engine.gotoScene(Keypad, 4, choice.Code, choice.Variable, choice.Return, data);
             }
-            if (choice == "Search"){
+            else if (choice == "Search"){
                 this.engine.show("&gt; "+choice.Text);
                 this.engine.show(locationData.Search);
             }
-            this.engine.show("&gt; "+choice.Text);
-            this.engine.gotoScene(Location, choice.Target);
+            else {
+                this.engine.show("&gt; "+choice.Text);
+                this.engine.gotoScene(Location, choice.Target, data);
+            }
         } else {
             this.engine.gotoScene(End);
         }

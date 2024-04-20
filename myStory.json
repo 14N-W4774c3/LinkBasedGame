@@ -4,7 +4,7 @@
     "InitialLocation": "Introduction",
     "Locations": {
         "Introduction": {
-            "Body": "",
+            "Body": "You are an investigative reporter, and have snuck in to a facility in order to get the scoop on questionable activities you've heard rumors about.<br>You've snuck in through the air ducts...<br>Unfortunately, they proved to not be sturdy enough to support your weight.  Dammit, movies lied to you!",
             "Choices": [
                 {
                     "Text": "Fall",
@@ -17,7 +17,7 @@
             "Search": [
                 {
                     "Text": "Between some file cabinets, you find a scrap of paper with the word 'Fahre-' written on it.",
-                    "Result": "northClue"
+                    "SID": "2"
                 }
             ],
             "Choices": [
@@ -40,7 +40,7 @@
             "Search": [
                 {
                     "Text": "Looking around, you manage to find a key behind some boxes.",
-                    "Result": "roomKey"
+                    "SID": "1"
                 }
             ],
             "Choices": [
@@ -59,11 +59,11 @@
             ]
         },
         "West Side": {
-            "Body": "",
+            "Body": "This side of the room has several stacked cardboard boxes.  <br>Not filled with anything particularly useful to your current predicament, however.  Still, there might be something here.",
             "Search": [
                 {
-                    "Text": "You find a scrap of paper with the word '-neheit' written on it.",
-                    "Result": "westClue"
+                    "Text": "Amongst the boxes, you find a scrap of paper with the word '-neheit' written on it.",
+                    "SID": "5"
                 }
             ],
             "Choices": [
@@ -82,11 +82,11 @@
             ]
         },
         "South Side": {
-            "Body": "",
+            "Body": "This side of the room is dominated by a large metal door.  Next to it is a keypad.  Perhaps you can find a clue to the combination somewhere around here... or just start pressing buttons.  Not like you've got a better option.",
             "Search": [
                 {
                     "Text": "You look around for a while, but don't find anything else.",
-                    "Result": "none"
+                    "SID": "4"
                 }
             ],
             "Choices": [
@@ -104,7 +104,10 @@
                 },
                 {
                     "Text": "Try the keypad",
-                    "Target": "Keypad"
+                    "Target": "Keypad",
+                    "Code": "0451",
+                    "Return": "South Side",
+                    "Variable": "room1Keypad"
                 }
             ]
         },
